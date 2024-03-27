@@ -1,6 +1,5 @@
 package com.niqactivate.niqactivateapi.service.interfaces;
 
-import com.niqactivate.niqactivateapi.dto.Product;
 import com.niqactivate.niqactivateapi.entity.ProductDetails;
 import org.springframework.data.domain.Page;
 

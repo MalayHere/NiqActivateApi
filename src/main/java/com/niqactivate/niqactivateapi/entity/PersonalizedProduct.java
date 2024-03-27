@@ -16,6 +16,10 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class PersonalizedProduct {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
     @Column(name = "shopper_id")
     private String shopperId;
 
@@ -27,9 +31,13 @@ public class PersonalizedProduct {
     @Column(name = "relevancy_score")
     private BigDecimal relevancyScore;
 
-//
-//    @ManyToOne
-//    @JoinColumn(name = "product_id", referencedColumnName = "product_id", insertable = false, updatable = false)
-//    private ProductDetails productDetails;
+    @ManyToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "product_id", insertable = false, updatable = false)
+    private ProductDetails productDetails;
 
+    public PersonalizedProduct(String shopperId, String productId, BigDecimal relevancyScore) {
+        this.shopperId = shopperId;
+        this.productId = productId;
+        this.relevancyScore = relevancyScore;
+    }
 }

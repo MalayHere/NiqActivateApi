@@ -1,15 +1,10 @@
 package com.niqactivate.niqactivateapi.controller;
 
-import com.niqactivate.niqactivateapi.dto.Product;
 import com.niqactivate.niqactivateapi.entity.ProductDetails;
 import com.niqactivate.niqactivateapi.service.impl.PersonalizedProductListServiceImpl;
-import com.niqactivate.niqactivateapi.service.interfaces.PersonalizedProductListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
