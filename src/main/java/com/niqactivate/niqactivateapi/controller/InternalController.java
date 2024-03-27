@@ -6,6 +6,7 @@ import com.niqactivate.niqactivateapi.exception.DatabaseException;
 import com.niqactivate.niqactivateapi.exception.ErrorResponse;
 import com.niqactivate.niqactivateapi.service.impl.PersonalizedProductListServiceImpl;
 import com.niqactivate.niqactivateapi.service.impl.ProductDetailsServiceImpl;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,13 @@ public class InternalController {
         this.productDetailsService = productDetailsService;
     }
 
+    @Operation(
+            summary = "add shopper's personalised information",
+            description = "when a user from the data team wants to add shopper's " +
+                    "personalised information they can use the /personalized-products/add " +
+                    "endpoint. This endpoint takes shopperId, productId & relevancyScore " +
+                    "as the input and stores it in the database."
+    )
     @PostMapping("/personalized-products/add")
     public ResponseEntity<Object> addPersonalizedProduct(@RequestBody @Valid PersonalizedProductList personalizedProductList, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -49,6 +57,12 @@ public class InternalController {
         }
     }
 
+    @Operation(
+            summary = "add product",
+            description = "This endpoint is used to add the product metadata " +
+                    "coming from the data team and store it in the database. " +
+                    "The product meta data include productId, category & brand."
+    )
     @PostMapping("/products/add")
     public ResponseEntity<Object> addProduct(@RequestBody @Valid @NotEmpty(message = "Product list cannot be empty") List<ProductMetadata> products, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

@@ -2,6 +2,7 @@ package com.niqactivate.niqactivateapi.controller;
 
 import com.niqactivate.niqactivateapi.entity.ProductDetails;
 import com.niqactivate.niqactivateapi.service.impl.PersonalizedProductListServiceImpl;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,12 @@ public class ExternalController {
     @Autowired
     private PersonalizedProductListServiceImpl personalizedProductListService;
 
+
+    @Operation(
+            summary = "get the products based on shopper id",
+            description = "This endpoint exposes the functionality for fetching " +
+                    "the products based on shopper id to the end user. " +
+                    "The function returns a list of product details from the database")
     @GetMapping("/{shopperId}")
     public ResponseEntity<Page<List<ProductDetails>>> getProductsByShopperId(
             @PathVariable String shopperId,
