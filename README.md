@@ -4,6 +4,9 @@
 API service that provides shoppers
 personalized information to eCommerce servers.
 
+swagger documentation link-
+http://localhost:8081/swagger-ui/index.html#/
+
 
 
 ## API Reference
@@ -54,6 +57,7 @@ shelfItemList	[...]
 ## Screenshots
 DataBase Design
 
-![Untitled](https://github.com/MalayHere/NiqActivateApi/assets/158697312/a92f0176-f2d9-4503-84fa-aa928ae0cb88)
+
+![Untitled](https://github.com/MalayHere/NiqActivateApi/assets/158697312/87f3b415-5f76-475f-ae24-a6f05fec3860)
 
 
