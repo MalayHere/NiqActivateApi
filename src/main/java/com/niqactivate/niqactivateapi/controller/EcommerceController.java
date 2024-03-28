@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/products")
-public class ExternalController {
+public class EcommerceController {
 
     @Autowired
     private PersonalizedProductListServiceImpl personalizedProductListService;
@@ -22,6 +22,9 @@ public class ExternalController {
             summary = "get the products based on shopper id",
             description = "This endpoint exposes the functionality for fetching " +
                     "the products based on shopper id to the end user. " +
+                    "In the parameter list shopperId is mandatory field, category," +
+                    "brand and limit are non mandatory fields and limit takes a default value" +
+                    "of 10." +
                     "The function returns a list of product details from the database")
     @GetMapping("/{shopperId}")
     public ResponseEntity<Page<List<ProductDetails>>> getProductsByShopperId(

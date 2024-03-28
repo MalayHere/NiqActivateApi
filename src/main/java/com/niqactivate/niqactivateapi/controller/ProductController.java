@@ -22,14 +22,14 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-public class InternalController {
+public class ProductController {
 
     private final PersonalizedProductListServiceImpl personalizedProductService;
     private final ProductDetailsServiceImpl productDetailsService;
     Map<String,String> map = new HashMap<>();
     @Autowired
-    public InternalController(PersonalizedProductListServiceImpl personalizedProductListService,
-                              ProductDetailsServiceImpl productDetailsService) {
+    public ProductController(PersonalizedProductListServiceImpl personalizedProductListService,
+                             ProductDetailsServiceImpl productDetailsService) {
         this.personalizedProductService = personalizedProductListService;
         this.productDetailsService = productDetailsService;
     }
