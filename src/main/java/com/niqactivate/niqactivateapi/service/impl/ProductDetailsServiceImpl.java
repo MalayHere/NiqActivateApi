@@ -1,7 +1,7 @@
 package com.niqactivate.niqactivateapi.service.impl;
 
-import com.niqactivate.niqactivateapi.dto.ProductMetadata;
-import com.niqactivate.niqactivateapi.entity.ProductDetails;
+import com.niqactivate.niqactivateapi.dto.ProductDTO;
+import com.niqactivate.niqactivateapi.entity.Product;
 import com.niqactivate.niqactivateapi.exception.DatabaseException;
 import com.niqactivate.niqactivateapi.repository.interfaces.ProductDetailsRepository;
 import com.niqactivate.niqactivateapi.service.interfaces.ProductDetailsService;
@@ -22,10 +22,15 @@ public class ProductDetailsServiceImpl implements ProductDetailsService {
     }
 
     @Override
-    public void saveProductsData(List<ProductMetadata> products) {
+    public void saveProductsData(List<ProductDTO> products) {
+        for(ProductDTO productDTO: products){
+            if(productDetailsRepository.existsById(productDTO.getProductId())){
+                throw new DatabaseException("Product already exists!");
+            }
+        }
         try {
             productDetailsRepository.saveAll(products.stream()
-                    .map(product -> modelMapper.map(product, ProductDetails.class))
+                    .map(product -> modelMapper.map(product, Product.class))
                     .collect(Collectors.toList()));
         } catch (Exception ex) {
             throw new DatabaseException("Error occurred while saving products: " + ex.getMessage());

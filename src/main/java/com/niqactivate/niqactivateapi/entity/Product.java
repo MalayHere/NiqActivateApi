@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDetails {
+public class Product {
     @Id
     @Column(name = "product_id")
     private String productId;

@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ProductMetadata {
+public class ProductDTO {
         @NotBlank(message = "Product ID is required")
         private String productId;
 

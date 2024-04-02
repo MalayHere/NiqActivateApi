@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Data
-public class PersonalizedProductList {
+public class ShopperDTO {
     @NotNull(message = "Shopper ID is required")
     @Pattern(regexp = "^S-.*", message = "Invalid Shopper Id")
     private String shopperId;
